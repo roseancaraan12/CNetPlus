@@ -172,7 +172,7 @@ config t
 ip routing
 ip dhcp pool CAMERA6
 host 10.42.50.6 255.255.255.0
-client-identifier abcd.1234.cafb
+client-identifier 001a.070a.24ef
 ip dhcp pool CAMERA8
 host 10.42.50.8 255.255.255.0
 client-identifier abcd.1234.cafb
@@ -250,12 +250,12 @@ ephone-dn 8
 ephone-dn 10
  number 4298
 Ephone 1
-  Mac-address cafe.face.baba
+  Mac-address ccd8.c1fb.02b7
   type 8945
   button 1:8 2:7 3:6 4:5
   restart
 Ephone 2
-  Mac-address fafa.caca.baba
+  Mac-address ccd8.c1fa.dd39
   type 8945
   button 1:4 2:3 3:2 4:1
   restart  
@@ -347,6 +347,10 @@ dial-peer voice 81 Voip
 dial-peer voice 82 Voip
  destination-pattern 82..
  session target ipv4:10.82.100.8
+ codec g711ULAW
+dial-peer voice 91 Voip
+ destination-pattern 91..
+ session target ipv4:10.91.100.8
  codec g711ULAW
 
 TASK3***TASK3***TASK3***
@@ -603,25 +607,25 @@ conf t
 !
  voice register global
   mode cme
-  source-address 10._.100.8 port 5060
+  source-address 10.42.100.8 port 5060
   max-dn 12
   max-pool 12
   authenticate register
   create profile sync
  voice register dn 1
-   number ____
+   number 4271
    allow watch
-   name _______
- voice register dn 2
-   number ___
-   allow watch
-   name _______
+   name 4271
+! voice register dn 2
+ !  number ___
+  ! allow watch
+!   name _______
 !
   voice register pool 1
-    id mac ____.____.____
+    id mac 983c.8ccf.e50e
     number 1 dn 1
     dtmf-relay sip-notify
-    username ____ password ____
+    username 4271 password 4271
     codec g711ulaw
 !
   voice register pool 2
@@ -643,4 +647,5 @@ exit
           
 sip-ua
 sip-server ipv4:192.168.k.1
+
 
